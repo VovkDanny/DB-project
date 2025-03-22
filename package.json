@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "chartjs-plugin-datalabels": "^2.2.0",
+    "ng2-charts": "^6.0.0"
+  }
+}

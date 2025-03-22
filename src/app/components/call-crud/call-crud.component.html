@@ -1,0 +1,102 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col">
+      <div class="mb-3">
+        <label for="customerId" class="form-label">Customer</label>
+        <select [(ngModel)]="model.customerId" class="form-select">
+          <option disabled [ngValue]="undefined">Select customer</option>
+          <option *ngFor="let customer of customer" [ngValue]="customer.id">
+            {{ customer.firstName }} {{ customer.secondName }} ({{
+              customer.phone
+            }})
+          </option>
+        </select>
+        <!-- <input [(ngModel)]="model.customerId" type="number" class="form-control" id="customerId" placeholder="Enter customer id"> -->
+      </div>
+    </div>
+    <div class="col">
+      <div class="mb-3">
+        <label for="registrId" class="form-label">Registr</label>
+        <select class="form-select" [(ngModel)]="model.registrId">
+          <option disabled [ngValue]="undefined">Select user...</option>
+          <option *ngFor="let user of users" [ngValue]="user.id">
+            {{ user.firstName }} {{ user.secondName }} ({{ user.speciality }})
+          </option>
+        </select>
+        <!-- <input [(ngModel)]="model.registrId" type="number" class="form-control" id="registrId" placeholder="Enter registr id"> -->
+      </div>
+    </div>
+    <div class="col">
+      <div class="mb-3">
+        <label for="dateTime" class="form-label">Date and time</label>
+        <input
+          [(ngModel)]="model.dateTime"
+          type="datetime-local"
+          class="form-control"
+          id="dateTime"
+          placeholder="Enter datetime"
+        />
+      </div>
+    </div>
+    <div class="col">
+      <div class="mb-3">
+        <label for="feedback" class="form-label">Feedback</label>
+        <textarea
+          [(ngModel)]="model.feedback"
+          type="text"
+          class="form-control"
+          id="feedback"
+          placeholder="Enter feedback"
+        ></textarea>
+      </div>
+    </div>
+    <div class="col">
+      <div class="mb-3">
+        <label for="theme" class="form-label">Theme</label>
+        <input
+          [(ngModel)]="model.theme"
+          type="text"
+          class="form-control"
+          id="theme"
+          placeholder="Enter theme"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <button class="btn btn-success" (click)="save()">Save</button>
+  </div>
+  <hr />
+  <!-- <button (click)="load()" class="btn btn-primary">Load</button> -->
+  <div class="row">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Customer</th>
+          <th scope="col">Date</th>
+          <th scope="col">Theme</th>
+          <th scope="col">Feedback</th>
+          <th scope="col">Operations</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let reg of list; let index = index">
+          <th scope="row">{{ index }}</th>
+          <td>{{ reg.registr?.firstName }}</td>
+          <td>{{ reg.dateTime | date : "dd.MM.yyyy hh:mm" }}</td>
+          <td>{{ reg.theme }}</td>
+          <td>{{ reg.feedback }}</td>
+          <td>
+            <button class="btn btn-danger" (click)="delete(reg.id)">
+              <i class="bi bi-trash"></i>
+            </button>
+            <button class="btn btn-success">
+              <i class="bi bi-pencil-square"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

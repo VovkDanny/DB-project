@@ -1,0 +1,53 @@
+<div class="container mt-5">
+    <div class="row">
+      <div class="col">
+        <div class="mb-3">
+          <label for="firstname" class="form-label">Firstname</label>
+          <input [(ngModel)]="model.firstName" type="text" class="form-control" id="firstname" placeholder="Enter firstname">
+        </div>
+      </div>
+      <div class="col">
+        <div class="mb-3">
+          <label for="secondName" class="form-label">Secondname</label>
+          <input [(ngModel)]="model.secondName" type="text" class="form-control" id="secondName" placeholder="Enter secondname">
+        </div>
+      </div>
+      <div class="col">
+        <div class="mb-3">
+          <label for="Speciality" class="form-label">Speciality</label>
+          <input [(ngModel)]="model.speciality" type="text" class="form-control" id="Speciality" placeholder="Enter speciality">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <button class="btn btn-success" (click)="save()">Save</button>
+    </div>
+    <hr>
+    <!-- <button (click)="load()" class="btn btn-primary">Load</button> -->
+    <div class="row">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Speciality</th>
+            <th scope="col">Operations</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let reg of list; let index = index">
+            <th scope="row">{{index}}</th>
+            <td>{{reg.firstName}}</td>
+            <td>{{reg.secondName}}</td>
+            <td>{{reg.speciality}}</td>
+            <td>
+              <button class="btn btn-danger mt-2" (click)="delete(reg.id)"><i class="bi bi-trash"></i></button>
+              <button class="btn btn-success" ><i class="bi bi-pencil-square"></i></button>
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

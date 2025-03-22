@@ -1,0 +1,42 @@
+
+<ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs" (activeIdChange)="activeChange()">
+  <li [ngbNavItem]="1" [destroyOnHide]="false">
+    <button ngbNavLink>Register</button>
+    <ng-template ngbNavContent>
+      <app-registr-crud></app-registr-crud>
+    </ng-template>
+  </li>
+  <li [ngbNavItem]="2" [destroyOnHide]="false">
+    <button ngbNavLink>Balance</button>
+    <ng-template ngbNavContent>
+      <app-balance-crud></app-balance-crud>
+    </ng-template> 
+  </li>
+  <li [ngbNavItem]="3" [destroyOnHide]="false">
+    <button ngbNavLink>Work hours</button>
+    <ng-template ngbNavContent>
+      <app-work-hours-crud></app-work-hours-crud>
+    </ng-template>
+  </li>
+  <li [ngbNavItem]="4" [destroyOnHide]="false">
+    <button ngbNavLink>Customers</button>
+    <ng-template ngbNavContent>
+      <app-custome-crud></app-custome-crud>
+    </ng-template>
+  </li>
+  <li [ngbNavItem]="5" [destroyOnHide]="false">
+    <button ngbNavLink>Calls</button>
+    <ng-template ngbNavContent>
+      <app-call-crud></app-call-crud>
+    </ng-template>
+  </li>
+  <li [ngbNavItem]="6" [destroyOnHide]="false">
+    <button ngbNavLink>Reports</button>
+    <ng-template ngbNavContent>
+      <app-reports></app-reports>
+    </ng-template>
+  </li>
+</ul>
+
+<div [ngbNavOutlet]="nav" class="mt-2"></div>
+
