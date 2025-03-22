@@ -1,0 +1,67 @@
+<div class="container mt-5">
+    <div class="row">
+      <div class="col">
+        <div class="mb-3">
+          <label for="userId" class="form-label">User</label>
+          <select [(ngModel)]="model.registrId" class="form-select" name="user">
+            <option [ngValue]="undefined" disabled>Select user</option>
+            <option *ngFor="let user of users" [ngValue]="user.id">
+              {{user.firstName}} {{user.secondName}} ({{user.speciality}})
+            </option>
+          </select>
+          <!-- <input [(ngModel)]="model.registrId" type="number" class="form-control" id="userId" placeholder="Enter user id..."> -->
+        </div>
+      </div>
+      <div class="col">
+        <div class="mb-3">
+          <label for="date" class="form-label">Date</label>
+          <input [(ngModel)]="model.date" type="date" class="form-control" id="date" placeholder="Enter date">
+        </div>
+      </div>
+      <div class="col">
+        <div class="mb-3">
+          <label for="timeStart" class="form-label">Work start at:</label>
+          <input [(ngModel)]="model.workStart" type="time" class="form-control" id="timeStart" placeholder="Enter time">
+        </div>
+      </div>
+      <div class="col">
+        <div class="mb-3">
+          <label for="timeEnd" class="form-label">Work end at:</label>
+          <input [(ngModel)]="model.workEnd" type="time" class="form-control" id="timeEnd" placeholder="Enter time">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <button class="btn btn-success" (click)="save()">Save</button>
+    </div>
+    <hr>
+    <!-- <button (click)="load()" class="btn btn-primary">Load</button> -->
+    <div class="row">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">User</th>
+            <th scope="col">Date</th>
+            <th scope="col">Work start at</th>
+            <th scope="col">Work end at</th>
+            <th scope="col">Operations</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of list">
+            <td>{{item.registrId}}</td>
+            <th scope="row">{{item.registr?.firstName}} {{item.registr?.secondName}}</th>
+            <td>{{item.date|date: "dd/MM/yyyy"}}</td>
+            <td>{{item.workStart}}</td>
+            <td>{{item.workEnd}}</td>
+            <td>
+              <button class="btn btn-danger mt-2" (click)="delete(item.id)"><i class="bi bi-trash"></i></button>
+              <button class="btn btn-success"><i class="bi bi-pencil-square"></i></button>
+            
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

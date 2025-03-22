@@ -1,0 +1,33 @@
+<div>
+  <div class="row text-center">
+    <div class="col">
+      <h2>Calls by registr</h2>
+      <canvas baseChart [data]="pieChartData" [type]="pieChartType">
+        <!-- [options]="pieChartOptions" -->
+        <!-- (chartHover)="chartHovered($event)" -->
+      </canvas>
+    </div>
+    <div class="col">
+      <h2>Registr by speciality</h2>
+      <canvas
+        baseChart
+        [data]="registrBySpecialityData"
+        [type]="pieChartType"
+        [options]="pieChartOptions"
+      >
+      </canvas>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h2>Balances</h2>
+      <canvas
+        baseChart
+        [data]="balanceData"
+        [type]="lineChartType"
+        [options]="lineChart"
+      >
+      </canvas>
+    </div>
+  </div>
+</div>
